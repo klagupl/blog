@@ -27,4 +27,12 @@ public class Page {
     public void setPageId(int pageId) {
         this.pageId = pageId;
     }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
+    }
 }
