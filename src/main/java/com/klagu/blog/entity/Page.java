@@ -29,6 +29,12 @@ public class Page {
     @JsonManagedReference
     private List<Post> posts;
 
+
+    public Page(int id,String pageName) {
+        this.pageName = pageName;
+        this.pageId = id;
+    }
+
     public int getPageId() {
         return pageId;
     }

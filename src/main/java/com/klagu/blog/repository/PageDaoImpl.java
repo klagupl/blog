@@ -21,7 +21,7 @@ public class PageDaoImpl implements PageDAO {
 
     @Override
     public List<Page> getAllPages() {
-        List<Page> pages= entityManager.createQuery("FROM Page",Page.class).getResultList();
+        List<Page> pages= entityManager.createQuery("SELECT new  Page(pageId, pageName) FROM Page",Page.class).getResultList();
         return pages;
     }
 
