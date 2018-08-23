@@ -1,8 +1,15 @@
 package com.klagu.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
+
+@Entity
+@Table(name="pages")
 public class Page {
 
     @Id
@@ -15,10 +22,12 @@ public class Page {
 
     @ManyToOne
     @JoinColumn(name="site_sitename")
+    @JsonBackReference
     private Site site;
 
     @OneToMany(mappedBy = "page")
-    private Set<Post> posts;
+    @JsonManagedReference
+    private List<Post> posts;
 
     public int getPageId() {
         return pageId;
@@ -28,11 +37,19 @@ public class Page {
         this.pageId = pageId;
     }
 
-    public Set<Post> getPosts() {
+    public String getPageName() {
+        return pageName;
+    }
+
+    public void setPageName(String pageName) {
+        this.pageName = pageName;
+    }
+
+    public List<Post> getPosts() {
         return posts;
     }
 
-    public void setPosts(Set<Post> posts) {
+    public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
 }

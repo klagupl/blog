@@ -1,6 +1,9 @@
 package com.klagu.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,7 +21,8 @@ public class Site {
     private String owner;
 
     @OneToMany(mappedBy = "site")
-    private Set<Page> pages;
+    @JsonManagedReference
+    private List<Page> pages;
 
 
     public String getSiteName() {
@@ -45,5 +49,11 @@ public class Site {
         this.owner = owner;
     }
 
+    public List<Page> getPages() {
+        return pages;
+    }
 
+    public void setPages(List<Page> pages) {
+        this.pages = pages;
+    }
 }

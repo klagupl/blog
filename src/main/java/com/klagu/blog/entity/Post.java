@@ -1,8 +1,12 @@
 package com.klagu.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "posts")
 public class Post {
 
 
@@ -29,6 +33,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "pages_pageid")
+    @JsonBackReference
     private Page page;
 
 
