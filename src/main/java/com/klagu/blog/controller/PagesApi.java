@@ -3,7 +3,9 @@ package com.klagu.blog.controller;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.klagu.blog.entity.Page;
 import com.klagu.blog.entity.Post;
+import com.klagu.blog.entity.Widget;
 import com.klagu.blog.service.PageService;
+import com.klagu.blog.service.WidgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,9 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api")
 public class PagesApi {
+
+    @Autowired
+    private WidgetService widgetService;
 
     @Autowired
     private PageService pageService;
@@ -43,5 +48,17 @@ public class PagesApi {
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
+    @GetMapping(value="/widgets")
+    public ResponseEntity<?> getAllWidgets(){
+        List<Widget> widgets =new ArrayList<>();
+        widgets = widgetService.getAllWidgets();
+
+        if(!widgets.isEmpty()) {
+            return new ResponseEntity<List<Widget>>(widgets, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+    }
+
 
 }

@@ -24,6 +24,9 @@ public class Site {
     @JsonManagedReference
     private List<Page> pages;
 
+    @OneToMany(mappedBy = "siteWidget")
+    @JsonManagedReference
+    private List<Widget> widgets;
 
     public String getSiteName() {
         return siteName;
