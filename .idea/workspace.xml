@@ -6,19 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ae7d60a-2a13-4c26-9370-7104304a63b0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/entity/Widget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/repository/PostDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/repository/WidgetDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/repository/WidgetDAOImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/service/WIdgetServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/service/WidgetService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/klagu/blog/controller/PagesApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/controller/PagesApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/klagu/blog/entity/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/entity/Page.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/klagu/blog/entity/Site.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/klagu/blog/entity/Site.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-    </list>
+    <list default="true" id="6ae7d60a-2a13-4c26-9370-7104304a63b0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -116,8 +104,8 @@
       <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+            <state relative-caret-position="357">
+              <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -218,7 +206,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
-    <option name="width" value="1732" />
+    <option name="width" value="1094" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
@@ -545,20 +533,21 @@
       <workItem from="1534972728906" duration="6000" />
       <workItem from="1535140924081" duration="1700000" />
       <workItem from="1535186668128" duration="3571000" />
-      <workItem from="1535276396756" duration="8786000" />
+      <workItem from="1535276396756" duration="12392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23630000" />
+    <option name="totallyTimeSpent" value="27236000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1732" height="1047" extended-state="0" />
+    <frame x="-7" y="0" width="1094" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Application Servers" order="8" sideWeight="0.4972826" weight="0.32893288" />
-      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.36303827" />
+      <window_info anchor="right" id="Maven Projects" order="3" weight="0.5541586" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -576,8 +565,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32893288" />
       <window_info anchor="bottom" id="Spring" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893288" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28050238" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32893288" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.45357832" />
       <window_info anchor="right" id="Bean Validation" order="4" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -1000,8 +989,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker-compose.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="36" column="10" selection-start-line="36" selection-start-column="10" selection-end-line="36" selection-end-column="10" />
+        <state relative-caret-position="357">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>
