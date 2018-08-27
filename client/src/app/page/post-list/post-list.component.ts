@@ -1,5 +1,5 @@
+import { PostService } from './postApi.service';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-  constructor() { }
+  private posts:Array<object> = [];
+  constructor(private postService:PostService) { }
 
   ngOnInit() {
+    this.getPosts();
   }
 
+  public getPosts(){
+    this.postService.getPosts().subscribe((data: Array<object>)=>{
+      this.posts=data;
+      console.log(data);
+    })
+  }
 }

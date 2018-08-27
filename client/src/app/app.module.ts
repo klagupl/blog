@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PageComponent } from './page/page.component';
 import { PostListComponent } from './page/post-list/post-list.component';
 import { SidebarComponent } from './page/sidebar/sidebar.component';
+import { PostComponent } from './page/post-list/post/post.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,12 @@ import { SidebarComponent } from './page/sidebar/sidebar.component';
     NavigationComponent,
     PageComponent,
     PostListComponent,
-    SidebarComponent
+    SidebarComponent,
+    PostComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
