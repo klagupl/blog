@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PostService {
-  URL='http://localhost:8080';
+  URL='http://localhost:8087';
   constructor(private httpClient:HttpClient) { }
 
-  getPosts(){
-    return this.httpClient.get(`${this.URL}/api/page/2`)
+  getPosts(pageId:number){
+    return this.httpClient.get(`${this.URL}/api/page/`+pageId)
   }
 }

@@ -7,6 +7,7 @@ import { PageComponent } from './page/page.component';
 import { PostListComponent } from './page/post-list/post-list.component';
 import { SidebarComponent } from './page/sidebar/sidebar.component';
 import { PostComponent } from './page/post-list/post/post.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PostComponent } from './page/post-list/post/post.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

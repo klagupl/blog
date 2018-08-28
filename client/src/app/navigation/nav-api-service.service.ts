@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 
 export class NavApiServiceService {
-  URL='http://localhost:8080';
+  URL='http://localhost:8087';
   constructor(private httpClient:HttpClient) { }
   getPages(){
     return this.httpClient.get(`${this.URL}/api/pages`);
