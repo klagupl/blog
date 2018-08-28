@@ -32,10 +32,14 @@ public class PageServiceImpl implements PageService {
             return posts;
         }
         posts= pageDAO.getPageById(pageid).getPosts();
-        int numberOfPosts=pagination*10;
-        List<Post> selectedPosts=new ArrayList<Post>(posts.subList(numberOfPosts,numberOfPosts+10));
+        int fromIndex=pagination*10;
+        int toIndex=fromIndex+10;
+        if(toIndex>posts.size()){
+            toIndex=posts.size();
+        }
+        List<Post> selectedPosts=new ArrayList<Post>(posts.subList(fromIndex,toIndex));
 
-        return posts;    }
+        return selectedPosts;    }
 
     @Override
     public List<Page> getAllPages() {

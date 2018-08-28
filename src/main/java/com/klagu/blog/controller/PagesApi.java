@@ -37,10 +37,14 @@ public class PagesApi {
 
     @GetMapping(value = "/page/{id}")
     public ResponseEntity<?> getPostsFromPage(@PathVariable int id,
-                                              @RequestParam(value = "p", required = false) int pageId){
+                                              @RequestParam(value = "p", required = false) Integer pageId){
 
         List<Post> posts=new ArrayList<>();
-        posts=pageService.getPostsFromPage(id);
+        if(pageId==null) {
+            posts = pageService.getPostsFromPage(id);
+        }else{
+            posts=pageService.getSelPostsFromPage(id,pageId);
+        }
         if(!posts.isEmpty()){
             return new ResponseEntity<List<Post>>(posts,HttpStatus.OK);
         }
