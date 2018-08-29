@@ -8,6 +8,8 @@ import { PostListComponent } from './page/post-list/post-list.component';
 import { SidebarComponent } from './page/sidebar/sidebar.component';
 import { PostComponent } from './page/post-list/post/post.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
+import { PostDetailComponent } from './page/post-detail/post-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { AppRoutingModule } from './app-routing.module';
     PageComponent,
     PostListComponent,
     SidebarComponent,
-    PostComponent
+    PostComponent,
+    PostDetailComponent
   ],
   imports: [
     BrowserModule,

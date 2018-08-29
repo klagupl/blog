@@ -5,15 +5,15 @@
   </h1>
 
   <app-post
-    *ngFor="let postEl of posts"
+    *ngFor="let postEl of postsPage"
     [post]="postEl"></app-post>
 
   <!-- Pagination -->
   <ul class="pagination justify-content-center mb-4">
-    <li class="page-item">
-      <a class="page-link" (click)="getOlder()">&larr; Older</a>
+    <li class="page-item" [class.disabled]="olderDisabled">
+      <a class="page-link"  (click)="getOlder()">&larr; Older</a>
     </li>
-    <li class="page-item">
+    <li class="page-item" [class.disabled]="newerDisabled">
       <a class="page-link" (click)="getNewer()">Newer &rarr;</a>
     </li>
   </ul>
