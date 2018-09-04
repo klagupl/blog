@@ -3,7 +3,7 @@
   <div class="card-body">
     <h2 class="card-title">{{post.title}}</h2>
     <p class="card-text">{{post.preview}}</p>
-    <a [routerLink]="['/page/2/post']" class="btn btn-primary">Read More &rarr;</a>
+    <a [routerLink]="['post',post.postId]" class="btn btn-primary">Read More &rarr;</a>
   </div>
   <div class="card-footer text-muted">
     Posted on {{post.date}} by

@@ -78,3 +78,4 @@ export class PostListComponent implements OnInit {
       this.olderDisabled=false;
   }
 }
+}

@@ -8,7 +8,7 @@ const routes: Routes =[
     {path: '', redirectTo:'/page/1', pathMatch: 'full'},
     {path: 'page',component:PageComponent,  children:[
         {path: ':id', component: PostListComponent},
-        {path: ':id/post', component: PostDetailComponent}
+        {path: ':id/post/:postid', component: PostDetailComponent}
 
     ]},
     
