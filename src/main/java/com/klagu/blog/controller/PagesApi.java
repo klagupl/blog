@@ -4,7 +4,9 @@ import ch.qos.logback.core.net.SyslogOutputStream;
 import com.klagu.blog.entity.Page;
 import com.klagu.blog.entity.Post;
 import com.klagu.blog.entity.Widget;
+import com.klagu.blog.model.SearchTerms;
 import com.klagu.blog.service.PageService;
+import com.klagu.blog.service.SearchService;
 import com.klagu.blog.service.WidgetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,9 @@ public class PagesApi {
 
     @Autowired
     private PageService pageService;
+
+    @Autowired
+    private SearchService searchService;
 
     @GetMapping(value="/pages")
     public ResponseEntity<?> getPages(){
@@ -60,6 +65,28 @@ public class PagesApi {
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
+    }
+    @PostMapping(value = "/search")
+    public ResponseEntity<?> searchPost(@RequestBody SearchTerms searchTerms){
+        List<Post> postFound= new ArrayList<>();
+        postFound=searchService.searchPost(searchTerms.getSearchTerm());
+        if(!postFound.isEmpty()) {
+            System.out.println(postFound);
+            return new ResponseEntity<List<Post>>(postFound, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+    }
+
+    @GetMapping(value = "/category")
+    public ResponseEntity<?> sortByCategory(@RequestParam(value = "name") String categoryName){
+        List<Post> postFound= new ArrayList<>();
+        postFound=searchService.sortByCategory(categoryName);
+        if(!postFound.isEmpty()) {
+            System.out.println(postFound);
+            return new ResponseEntity<List<Post>>(postFound, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
 

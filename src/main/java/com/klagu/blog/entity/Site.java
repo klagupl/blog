@@ -1,12 +1,14 @@
 package com.klagu.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.stereotype.Indexed;
 
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
 @Entity
+@Indexed
 @Table(name="site")
 public class Site {
 

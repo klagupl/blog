@@ -9,11 +9,13 @@ import { ActivatedRoute, Params } from '@angular/router';
 export class PostListComponent implements OnInit {
   private pagination:number;
   private pageIdParam:number;
+  private tagName:string;
   private maxPages;
   private posts:Array<object> = [];
   private postsPage:Array<object>=[];
   private olderDisabled:boolean;
   private newerDisabled:boolean;
+
   constructor(private postService:PostService,
     private route: ActivatedRoute) { }
   
@@ -21,8 +23,16 @@ export class PostListComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params)=>{
+          if(params['id']){
           this.pageIdParam=+params['id'];
           this.getPosts(this.pageIdParam);
+          }
+          console.log(params['tagname']);
+          if(params['tagname']){
+            this.tagName=params['tagname'];
+            console.log(this.tagName)
+            this.getPostsByCategory(this.tagName);
+          }
           this.pagination=1;
           
         }
@@ -31,8 +41,21 @@ export class PostListComponent implements OnInit {
       console.log(this.pageIdParam);
   }
 
-  public getPosts(postId:number, page?:number){
-    this.postService.getPosts(postId).subscribe((data: Array<object>)=>{
+  public getPosts(postId:number ){
+    this.postService.getPosts(postId);
+    this.postService.postsChanged.subscribe((data: Array<object>)=>{
+      this.posts=data;
+      this.maxPages=Math.ceil(this.posts.length/10)
+      this.postsPage=this.posts.slice(0,9);
+      console.log(data, this.maxPages);
+      this.olderDisabled=false;
+      this.newerDisabled=false;
+      this.checkPageLinkButton();
+    })
+  }
+  public getPostsByCategory(tagName:string){
+    this.postService.getPostsByCategory(this.tagName);
+    this.postService.postsChanged.subscribe((data: Array<object>)=>{
       this.posts=data;
       this.maxPages=Math.ceil(this.posts.length/10)
       this.postsPage=this.posts.slice(0,9);
@@ -77,4 +100,5 @@ export class PostListComponent implements OnInit {
   }else{
       this.olderDisabled=false;
   }
+}
 }

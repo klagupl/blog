@@ -1,11 +1,17 @@
 package com.klagu.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.IndexedEmbedded;
+import org.hibernate.search.annotations.Store;
+import org.hibernate.search.annotations.Indexed;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Indexed
 @Table(name = "posts")
 public class Post {
 
@@ -17,25 +23,51 @@ public class Post {
 
 
     @Column(name = "title")
+    @Field(store = Store.NO)
     private String title;
 
     @Column(name="preview")
+    @Field
     private String preview;
 
     @Column(name = "content")
+    @Field
     private String content;
 
     @Column(name = "image")
+    @Field
     private String image;
 
+
     @Column(name ="date")
+    @Field
     private Date date;
 
+    @IndexedEmbedded
     @ManyToOne
     @JoinColumn(name = "pages_pageid")
     @JsonBackReference
     private Page page;
 
+    @IndexedEmbedded
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name="categories_has_posts",
+                    joinColumns = @JoinColumn(name="posts_postid"),
+                    inverseJoinColumns = @JoinColumn(name="categories_categoryid")
+    )
+    private List<Category> tags = new ArrayList<>();
+
+
+    public List<Category> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Category> tags) {
+        this.tags = tags;
+    }
 
     public int getPostId() {
         return postId;

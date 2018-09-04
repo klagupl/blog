@@ -1,10 +1,12 @@
 package com.klagu.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.stereotype.Indexed;
 
 import javax.persistence.*;
 
 @Entity
+@Indexed
 @Table(name="widgets")
 public class Widget {
 
