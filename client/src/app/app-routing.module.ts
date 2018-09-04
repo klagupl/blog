@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from "../../node_modules/@angular/router";
 import { PageComponent } from "./page/page.component";
-import { NgModule } from "@angular/core";
+import { NgModule, Component } from "@angular/core";
 import { PostDetailComponent } from "./page/post-detail/post-detail.component";
 import { PostListComponent } from "./page/post-list/post-list.component";
 
@@ -11,6 +11,9 @@ const routes: Routes =[
         {path: ':id/post/:postid', component: PostDetailComponent}
 
     ]},
+    {path: 'tag', component: PageComponent, children:[
+        {path: ':tagname',component: PostListComponent}
+    ] }
     
 
 

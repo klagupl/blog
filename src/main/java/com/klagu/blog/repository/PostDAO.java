@@ -8,4 +8,6 @@ public interface PostDAO {
 
     Post getPostById(int id);
     List<Post> getAllPosts();
+    List<Post> searchInPosts(String term);
+    List<Post> sortByCategory(String category);
 }
