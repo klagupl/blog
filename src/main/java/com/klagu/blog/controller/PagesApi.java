@@ -66,10 +66,10 @@ public class PagesApi {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
     }
-    @PostMapping(value = "/search")
-    public ResponseEntity<?> searchPost(@RequestBody SearchTerms searchTerms){
+    @PostMapping(value = "/search",consumes = "text/plain")
+    public ResponseEntity<?> searchPost(@RequestBody String searchTerms){
         List<Post> postFound= new ArrayList<>();
-        postFound=searchService.searchPost(searchTerms.getSearchTerm());
+        postFound=searchService.searchPost(searchTerms);
         if(!postFound.isEmpty()) {
             System.out.println(postFound);
             return new ResponseEntity<List<Post>>(postFound, HttpStatus.OK);

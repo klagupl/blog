@@ -73,11 +73,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `blogdata`.`cateogories`
+-- Table `blogdata`.`categories`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `blogdata`.`cateogories` ;
+DROP TABLE IF EXISTS `blogdata`.`categories` ;
 
-CREATE TABLE IF NOT EXISTS `blogdata`.`cateogories` (
+CREATE TABLE IF NOT EXISTS `blogdata`.`categories` (
   `categoryid` INT NOT NULL AUTO_INCREMENT,
   `category` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`categoryid`))
@@ -85,22 +85,22 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `blogdata`.`cateogories_has_posts`
+-- Table `blogdata`.`categories_has_posts`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `blogdata`.`cateogories_has_posts` ;
+DROP TABLE IF EXISTS `blogdata`.`categories_has_posts` ;
 
-CREATE TABLE IF NOT EXISTS `blogdata`.`cateogories_has_posts` (
-  `cateogories_categoryid` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `blogdata`.`categories_has_posts` (
+  `categories_categoryid` INT NOT NULL,
   `posts_postid` INT NOT NULL,
-  PRIMARY KEY (`cateogories_categoryid`, `posts_postid`),
-  INDEX `fk_cateogories_has_posts_posts1_idx` (`posts_postid` ASC),
-  INDEX `fk_cateogories_has_posts_cateogories1_idx` (`cateogories_categoryid` ASC),
-  CONSTRAINT `fk_cateogories_has_posts_cateogories1`
-    FOREIGN KEY (`cateogories_categoryid`)
-    REFERENCES `blogdata`.`cateogories` (`categoryid`)
+  PRIMARY KEY (`categories_categoryid`, `posts_postid`),
+  INDEX `fk_categories_has_posts_posts1_idx` (`posts_postid` ASC),
+  INDEX `fk_categories_has_posts_categories1_idx` (`categories_categoryid` ASC),
+  CONSTRAINT `fk_categories_has_posts_categories1`
+    FOREIGN KEY (`categories_categoryid`)
+    REFERENCES `blogdata`.`categories` (`categoryid`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_cateogories_has_posts_posts1`
+  CONSTRAINT `fk_categories_has_posts_posts1`
     FOREIGN KEY (`posts_postid`)
     REFERENCES `blogdata`.`posts` (`postid`)
     ON DELETE NO ACTION

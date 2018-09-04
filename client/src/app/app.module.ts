@@ -10,6 +10,8 @@ import { PostComponent } from './page/post-list/post/post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { PostDetailComponent } from './page/post-detail/post-detail.component';
+import { SearchWidgetComponent } from './page/sidebar/search-widget/search-widget.component';
+import { FormsModule } from '../../node_modules/@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import { PostDetailComponent } from './page/post-detail/post-detail.component';
     PostListComponent,
     SidebarComponent,
     PostComponent,
-    PostDetailComponent
+    PostDetailComponent,
+    SearchWidgetComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

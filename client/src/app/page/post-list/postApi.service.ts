@@ -1,4 +1,4 @@
-import { HttpClientModule, HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -14,6 +14,7 @@ export class PostService {
   constructor(private httpClient:HttpClient) { }
   
   getPosts(pageId:number){
+
     this.httpClient.get(`${this.URL}/api/page/`+pageId)
       .subscribe(
         (data: Array<object>)=>{
@@ -30,11 +31,22 @@ export class PostService {
       }
     )
   }
+  searchPosts(searchTerm:string){
+    let header=new HttpHeaders();
+    header.set('Content-Type', 'text/plain')
+    this.httpClient.post(`${this.URL}/api/search`,searchTerm,{headers:header})
+    .subscribe(
+      (data: Array<object>)=>{
+        this.setPosts(data);
+      }
+    )
+  }
   setPosts(posts: Array<object>) {
     this.posts = posts;
     this.postsChanged.next(this.posts.slice());
-  }
 
+  }
+  
   getPageNum(){
     return this.pageNum;
   }
