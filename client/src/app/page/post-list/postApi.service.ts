@@ -22,6 +22,14 @@ export class PostService {
         }
       )
   }
+  getAllPosts(){
+    this.httpClient.get(`${this.URL}/api/posts`)
+      .subscribe(
+        (data:Array<object>)=>{
+          this.setPosts(data);
+        }
+      )
+  }
   getPostsByCategory(tagName:string){
     let params = new HttpParams().set('name', tagName);
     this.httpClient.get(`${this.URL}/api/category`,{params:params})

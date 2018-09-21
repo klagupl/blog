@@ -8,8 +8,6 @@ import java.util.List;
 @Service
 public interface PageService {
 
-    List<Post> getPostsFromPage(int pageid);
-    List<Post> getSelPostsFromPage(int pageid, int pagination);
     List<Page> getAllPages();
 
 

@@ -40,21 +40,21 @@ public class PagesApi {
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
-    @GetMapping(value = "/page/{id}")
-    public ResponseEntity<?> getPostsFromPage(@PathVariable int id,
-                                              @RequestParam(value = "p", required = false) Integer pageId){
-
-        List<Post> posts=new ArrayList<>();
-        if(pageId==null) {
-            posts = pageService.getPostsFromPage(id);
-        }else{
-            posts=pageService.getSelPostsFromPage(id,pageId);
-        }
-        if(!posts.isEmpty()){
-            return new ResponseEntity<List<Post>>(posts,HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-    }
+//    @GetMapping(value = "/page/{id}")
+//    public ResponseEntity<?> getPostsFromPage(@PathVariable int id,
+//                                              @RequestParam(value = "p", required = false) Integer pageId){
+//
+//        List<Post> posts=new ArrayList<>();
+//        if(pageId==null) {
+//            posts = pageService.getPostsFromPage(id);
+//        }else{
+//            posts=pageService.getSelPostsFromPage(id,pageId);
+//        }
+//        if(!posts.isEmpty()){
+//            return new ResponseEntity<List<Post>>(posts,HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//    }
     @GetMapping(value="/widgets")
     public ResponseEntity<?> getAllWidgets(){
         List<Widget> widgets =new ArrayList<>();

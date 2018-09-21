@@ -20,25 +20,27 @@ export class PostListComponent implements OnInit {
     private route: ActivatedRoute) { }
   
   ngOnInit() {
-    this.route.params
-      .subscribe(
-        (params: Params)=>{
-          if(params['id']){
-          this.pageIdParam=+params['id'];
-          this.getPosts(this.pageIdParam);
-          }
-          console.log(params['tagname']);
-          if(params['tagname']){
-            this.tagName=params['tagname'];
-            console.log(this.tagName)
-            this.getPostsByCategory(this.tagName);
-          }
-          this.pagination=1;
+    // this.route.params
+    //   .subscribe(
+    //     (params: Params)=>{
+    //       if(params['id']){
+    //       this.pageIdParam=+params['id'];
+    //       this.getPosts(this.pageIdParam);
+    //       }
+    //       console.log(params['tagname']);
+    //       if(params['tagname']){
+    //         this.tagName=params['tagname'];
+    //         console.log(this.tagName)
+    //         this.getPostsByCategory(this.tagName);
+    //       }
+    //       this.pagination=1;
           
-        }
-      )
+    //     }
+    //   )
      
-      console.log(this.pageIdParam);
+       console.log(this.pageIdParam);
+    this.getAllPosts();
+    this.pagination=1;
   }
 
   public getPosts(postId:number ){
@@ -53,6 +55,19 @@ export class PostListComponent implements OnInit {
       this.checkPageLinkButton();
     })
   }
+  public getAllPosts(){
+    this.postService.getAllPosts();
+    this.postService.postsChanged.subscribe((data: Array<object>)=>{
+      this.posts=data;
+      this.maxPages=Math.ceil(this.posts.length/10)
+      this.postsPage=this.posts.slice(0,9);
+      console.log(data, this.maxPages);
+      this.olderDisabled=false;
+      this.newerDisabled=false;
+      this.checkPageLinkButton();
+    }
+  )
+  }
   public getPostsByCategory(tagName:string){
     this.postService.getPostsByCategory(this.tagName);
     this.postService.postsChanged.subscribe((data: Array<object>)=>{
@@ -65,7 +80,7 @@ export class PostListComponent implements OnInit {
       this.checkPageLinkButton();
     })
   }
-  public getNewer(){
+  public  getNewer(){
       if(this.pagination>1){
         this.pagination--;
         this.postsPage=this.posts.slice(this.pagination*10-10, this.pagination*10)
@@ -89,7 +104,7 @@ export class PostListComponent implements OnInit {
     }
 
   }
-  checkPageLinkButton(){
+  public checkPageLinkButton(){
     if(this.pagination<=1){
       this.newerDisabled=true;
     }else{

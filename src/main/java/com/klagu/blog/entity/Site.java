@@ -24,6 +24,10 @@ public class Site {
 
     @OneToMany(mappedBy = "site")
     @JsonManagedReference
+    private List<Post> posts;
+
+    @OneToMany(mappedBy = "sitepage")
+    @JsonManagedReference
     private List<Page> pages;
 
     @OneToMany(mappedBy = "siteWidget")
@@ -54,11 +58,19 @@ public class Site {
         this.owner = owner;
     }
 
-    public List<Page> getPages() {
-        return pages;
+    public List<Post> getPosts() {
+        return posts;
     }
 
-    public void setPages(List<Page> pages) {
-        this.pages = pages;
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public List<Widget> getWidgets() {
+        return widgets;
+    }
+
+    public void setWidgets(List<Widget> widgets) {
+        this.widgets = widgets;
     }
 }

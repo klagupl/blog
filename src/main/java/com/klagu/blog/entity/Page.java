@@ -25,11 +25,8 @@ public class Page {
     @ManyToOne
     @JoinColumn(name="site_sitename")
     @JsonBackReference
-    private Site site;
+    private Site sitepage;
 
-    @OneToMany(mappedBy = "page")
-    @JsonManagedReference
-    private List<Post> posts;
 
     public Page(){}
 
@@ -54,11 +51,12 @@ public class Page {
         this.pageName = pageName;
     }
 
-    public List<Post> getPosts() {
-        return posts;
+
+    public Site getSitepage() {
+        return sitepage;
     }
 
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
+    public void setSitepage(Site sitepage) {
+        this.sitepage = sitepage;
     }
 }

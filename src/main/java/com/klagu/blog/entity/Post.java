@@ -46,9 +46,9 @@ public class Post {
 
     @IndexedEmbedded
     @ManyToOne
-    @JoinColumn(name = "pages_pageid")
+    @JoinColumn(name = "site_sitename")
     @JsonBackReference
-    private Page page;
+    private Site site;
 
     @IndexedEmbedded
     @JsonIgnore
@@ -119,11 +119,5 @@ public class Post {
         this.date = date;
     }
 
-    public Page getPage() {
-        return page;
-    }
 
-    public void setPage(Page page) {
-        this.page = page;
-    }
 }

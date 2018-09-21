@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
 import { PostDetailComponent } from './page/post-detail/post-detail.component';
 import { SearchWidgetComponent } from './page/sidebar/search-widget/search-widget.component';
 import { FormsModule } from '../../node_modules/@angular/forms';
+import { PageContentComponent } from './page/page-content/page-content.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule } from '../../node_modules/@angular/forms';
     SidebarComponent,
     PostComponent,
     PostDetailComponent,
-    SearchWidgetComponent
+    SearchWidgetComponent,
+    PageContentComponent
   ],
   imports: [
     BrowserModule,
